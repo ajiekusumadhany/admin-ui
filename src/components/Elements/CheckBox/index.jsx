@@ -1,14 +1,16 @@
-const CheckBox = () => {
+const CheckBox = (props) => {
+  const { label, name } = props;
+
   return (
     <>
       <input
         type="checkbox"
         className="text-sm accent-primary"
-        name="status"
-        id="status"
+        name={name}
+        id={name}
       />
-      <label htmlFor="status" className="text-sm text-gray-01 ms-6">
-        Keep me signed in
+      <label htmlFor={name} className="text-sm text-gray-01 ms-6">
+        {label}
       </label>
     </>
   );
