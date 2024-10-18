@@ -2,7 +2,7 @@ import Logo from "../Elements/Logo";
 import FormSignIn from "../fragments/FormSignIn";
 
 const AuthLayout = (props) => {
-  const { children } = props;
+  const { children, type } = props;
   return (
     <div className="flex justify-center min-h-screen items-center bg-special-mainBg">
       {/* container start */}
@@ -73,11 +73,20 @@ const AuthLayout = (props) => {
           </button>
         </div>
         {/* sign in with google end */}
-        {/* link start */}
-        <div className="flex justify-center">
-          <a className="text-primary text-sm font-bold">Create an account</a>
-        </div>
-        {/* link end */}
+{/* link start */}
+<div className="flex justify-center">
+  {type == "sign up" ? (
+    <>
+      <span className="text-sm text-gray-03">
+        Sudah memiliki akun?&nbsp;
+      </span>
+      <a className="text-primary text-sm font-bold">Masuk di Sini</a>
+    </>
+  ) : (
+    <a className="text-primary text-sm font-bold">Buat Akun</a>
+  )}
+</div>
+{/* link end */}
       </div>
       {/* container end */}
     </div>

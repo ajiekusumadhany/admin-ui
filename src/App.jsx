@@ -5,7 +5,7 @@ import SignUpPage from "./pages/signUp";
 const App = () => {
   return (
     <>
-      <SignUpPage />
+      <SignInPage />
     </>
   );
 };
