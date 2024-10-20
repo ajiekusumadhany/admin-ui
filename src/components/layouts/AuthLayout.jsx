@@ -12,8 +12,8 @@ const AuthLayout = (props) => {
         {/* logo end */}
         {/* text forgot password */}
         {type === "forgot password" && (
-          <div className="flex justify-center flex-col items-center mt-8">
-            <h2 className="font-bold mb-4">Forgot Password?</h2>
+          <div className="flex justify-center flex-col items-center mt-6">
+            <h2 className="font-bold mb-2">Forgot Password?</h2>
             <p className="text-center text-sm text-gray-02">
               Enter your email address to get the <br /> password reset link.
             </p>
@@ -21,7 +21,7 @@ const AuthLayout = (props) => {
         )}
         {/* text forgot password end */}
         {/* form start */}
-        <div className={`mt-${type === "forgot password" ? "4" : "16"}`}>
+        <div className={`mt-${type === "forgot password" ? "6" : "16"}`}>
           {children}
         </div>
         {/* form end */}

@@ -12,7 +12,7 @@ const FormForgotPassword = () => {
           name="email"
         />
       </div>
-      <Button variant="bg-primary w-full text-white mb-8" type="submit">
+      <Button variant="bg-primary w-full text-white mb-4" type="submit">
         Password Reset
       </Button>
     </form>
