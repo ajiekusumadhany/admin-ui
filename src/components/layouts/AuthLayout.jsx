@@ -21,9 +21,11 @@ const AuthLayout = (props) => {
         )}
         {/* text forgot password end */}
         {/* form start */}
-        <div className={`mt-${type === "forgot password" ? 6 : 16}`}>
-          {children}
-        </div>
+        {type === "forgot password" ? (
+          <div className="mt-6">{children}</div>
+        ) : (
+          <div className="mt-16">{children}</div>
+        )}
         {/* form end */}
         {/* teks start */}
         {type !== "forgot password" && (
