@@ -11,7 +11,7 @@ const DashboardPage = () => {
         <div className="mb-4 sm:w-1/3">
           <Card />
         </div>
-        <div className="mb-4 sm:we-1-3">
+        <div className="mb-4 sm:w-1/3">
           <Card />
         </div>
       </div>

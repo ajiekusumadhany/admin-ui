@@ -18,15 +18,17 @@ const BalancePage = () => {
       </div>
       {/* top content end*/}
       {/* bottom content start*/}
-      <div className="mb-8 sm:flex sm:gap-6">
-        <div className="sm:w-1/3">
+      <div className="sm:flex sm:gap-6">
+        <div className="mb-4 sm:w-1/3">
           <Card />
         </div>
-        <div className="m:w-1/3">
-          <Card />
-        </div>
-        <div className="sm:w-1/3">
-          <Card />
+        <div className="sm:w-2/3">
+          <div className="mb-4">
+            <Card />
+          </div>
+          <div className="mb-4">
+            <Card />
+          </div>
         </div>
       </div>
       {/* bottom content end*/}
