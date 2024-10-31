@@ -1,3 +1,4 @@
+import Card from "../components/Elements/Card";
 import MainLayout from "../components/layouts/MainLayout";
 
 const DashboardPage = () => {
