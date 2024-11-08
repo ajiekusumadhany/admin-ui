@@ -15,9 +15,9 @@ const BalancePage = () => {
       </div>
       {/* top content end*/}
       {/* bottom content start*/}
-      <div className="md:grid md:grid-cols-3 md:gap-x-6">
-        <Card desc="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit" />
+      <div className="md:grid md:grid-cols-3 md:gap-x-6"> 
         <Card />
+        <Card desc="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit" />
         <Card />
       </div>
       {/* bottom content end*/}
