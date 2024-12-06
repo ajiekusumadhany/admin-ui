@@ -5,9 +5,9 @@ import bills from "../data/bills";
 import expensesBreakdowns from "../data/expenses";
 import transactions from "../data/transactions";
 import React, { useState } from "react";
-import CardBill from "../components/Fragments/Dashboard/CardBill";
-import CardExpenseBreakdown from "../components/Fragments/Dashboard/CardExpenseBreakdown";
-import CardTransaction from "../components/Fragments/Dashboard/CardTransaction";
+import CardBill from "../components/fragments/Dashboard/CardBill";
+import CardExpenseBreakdown from "../components/fragments/Dashboard/CardExpenseBreakdown";
+import CardTransaction from "../components/fragments/Dashboard/CardTransaction";
 import CardBalance from "../components/fragments/Dashboard/CardBalance";
 
 const DashboardPage = () => {
@@ -97,7 +97,7 @@ const DashboardPage = () => {
     <MainLayout type="dashboard">
       {/* top content start*/}
       <div className="md:grid md:grid-cols-3 md:gap-x-6">
-        <CardBalance/>
+        <CardBalance />
         <Card title="Goals" />
         <CardBill />
         <CardTransaction />

@@ -32,10 +32,10 @@ const Stepper = (props) => {
         sx={{
           maxWidth: "100%",
           flexGrow: 1,
-          " & .MuiMobilestepper-dot": {
+          " & .MuiMobileStepper-dot": {
             backgroundColor: "darkgray",
           },
-          " & .MuiMobilestepper-dotActive": {
+          " & .MuiMobileStepper-dotActive": {
             backgroundColor: "#299D91",
           },
         }}
