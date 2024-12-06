@@ -5,6 +5,10 @@ import bills from "../data/bills";
 import expensesBreakdowns from "../data/expenses";
 import transactions from "../data/transactions";
 import React, { useState } from "react";
+import CardBill from "../components/Fragments/Dashboard/CardBill";
+import CardExpenseBreakdown from "../components/Fragments/Dashboard/CardExpenseBreakdown";
+import CardTransaction from "../components/Fragments/Dashboard/CardTransaction";
+import CardBalance from "../components/fragments/Dashboard/CardBalance";
 
 const DashboardPage = () => {
   const tabs = ["All", "Revenue", "Expense"];
@@ -93,54 +97,13 @@ const DashboardPage = () => {
     <MainLayout type="dashboard">
       {/* top content start*/}
       <div className="md:grid md:grid-cols-3 md:gap-x-6">
-        <Card title="Total Balance" />
-        <Card
-          title="Goals"
-          desc="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make"
-        />
-        <Card
-          title="Upcoming Bill"
-          desc={
-            <div className="h-full flex flex-col justify-around">
-              {billCard}
-            </div>
-          }
-        />{" "}
-        <div className="md:col-span-1">
-          <Card
-            title="Recent Transaction"
-            desc={
-              <div>
-                <div className="mb-4">
-                  {tabs.map((tab) => (
-                    <button
-                      key={tab}
-                      className={
-                        activeTab == tab
-                          ? "px-4 font-bold border-b-4 border-primary text-primary"
-                          : "px-4 font-bold text-gray-01"
-                      }
-                      value={tab}
-                      onClick={handleClick}
-                    >
-                      {tab}
-                    </button>
-                  ))}
-                </div>
-                {transactionCard}
-              </div>
-            }
-          />
-        </div>
+        <CardBalance/>
+        <Card title="Goals" />
+        <CardBill />
+        <CardTransaction />
         <div className="md:col-span-2 flex flex-col flex-1">
           <Card variant="md:col-span-2" title="Statistics" />
-          <Card
-            variant="md:col-span-2"
-            title="Expenses Breakdown"
-            desc={
-              <div className="h-full md:grid md:grid-cols-3">{expenseCard}</div>
-            }
-          />
+          <CardExpenseBreakdown />
         </div>
       </div>
       {/* bottom content end*/}
