@@ -9,6 +9,7 @@ import CardBill from "../components/fragments/Dashboard/CardBill";
 import CardExpenseBreakdown from "../components/fragments/Dashboard/CardExpenseBreakdown";
 import CardTransaction from "../components/fragments/Dashboard/CardTransaction";
 import CardBalance from "../components/fragments/Dashboard/CardBalance";
+import CardStatistic from "../components/fragments/Dashboard/CardStatistic";
 
 const DashboardPage = () => {
   const tabs = ["All", "Revenue", "Expense"];
@@ -102,7 +103,7 @@ const DashboardPage = () => {
         <CardBill />
         <CardTransaction />
         <div className="md:col-span-2 flex flex-col flex-1">
-          <Card variant="md:col-span-2" title="Statistics" />
+          <CardStatistic />
           <CardExpenseBreakdown />
         </div>
       </div>
