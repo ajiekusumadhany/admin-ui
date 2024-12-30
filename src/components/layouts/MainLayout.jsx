@@ -1,19 +1,36 @@
 import Navbar from "../fragments/Navbar";
 import Header from "../fragments/Header";
-import { useContext } from "react";
 import { ThemeContext } from "../../context/themeContext";
+import { useContext } from "react";
+import { NotifContext } from "../../context/notifContext";
+import SimpleBackdrop from "../Elements/Backdrop";
+import CustomizedSnackbars from "../Elements/SnackBar";
 
 const MainLayout = (props) => {
   const { children } = props;
-const { theme } = useContext(ThemeContext);
-return (
-  <div className={`flex bg-special-mainBg w-screen min-h-screen max-w-full ${theme.name}`}>
-    {/* Your content goes here */}
+  const { msg, setMsg, open, setOpen, isLoading, setIsLoading } =
+    useContext(NotifContext);
 
+  const { theme } = useContext(ThemeContext);
+  return (
+    <div
+      className={`flex bg-special-mainBg w-screen min-h-screen max-w-full ${theme.name}`}
+    >
       {/* navbar start*/}
       <Navbar />
       {/* navbar end*/}
       <div className="w-screen">
+      {isLoading && (
+          <SimpleBackdrop isLoading={isLoading} setIsLoading={setIsLoading} />
+        )}
+        {msg && (
+          <CustomizedSnackbars
+          severity={msg.severity}
+          message={msg.desc}
+          open={open}
+          setOpen={setOpen}
+          />
+        )}
         {/* header start*/}
         <Header />
         {/* header end*/}

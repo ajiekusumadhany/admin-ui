@@ -1,10 +1,58 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { goals } from "../../../data/goals";
 import Card from "../../Elements/Card";
 import CompositionExample from "../../Elements/GaugeChart";
 import { Icon } from "../../Elements/Icon";
 
 const CardGoal = () => {
-  const chartValue = (goals.presentAmount * 100) / goals.targetAmount;
+  const [goals, setGoals] = useState({ presentAmount: 0, targetAmount: 0 });
+
+  const value = (goals.presentAmount * 100) / goals.targetAmount;
+
+  const getData = async () => {
+    try {
+      const refreshToken = localStorage.getItem("refreshToken");
+
+      const response = await axios.get(
+        "https://jwt-auth-eight-neon.vercel.app/goals",
+        {
+          headers: {
+            Authorization: `Bearer ${refreshToken}`,
+          },
+        }
+      );
+
+      setGoals({
+        presentAmount: response.data.data[0].present_amount,
+        targetAmount: response.data.data[0].target_amount,
+      });
+      console.log(response.data);
+    } catch (error) {
+      if (error.response) {
+        if (error.response.status == 401) {
+          setOpen(true);
+          setMsg({
+            severity: "error",
+            desc: "Session Has Expired. Please Login.",
+          });
+      
+          setIsLoggedIn(false);
+          setName("");
+      
+          localStorage.removeItem("refreshToken");
+          navigate("/login");
+        } else {
+          console.log(error.response);
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <Card
       title="Goals"
@@ -50,7 +98,7 @@ const CardGoal = () => {
               </div>
             </div>
             <div className="ms-4 text-center">
-              <CompositionExample desc={chartValue} />
+              <CompositionExample desc={value} />
               <div className="flex justify-between">
                 <span className="text-gray-03">$0</span>
                 <span className="font-bold text-2xl">12K</span>

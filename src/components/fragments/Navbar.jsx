@@ -6,6 +6,7 @@ import { ThemeContext } from "../../context/themeContext";
 import axios from "axios";
 import { AuthContext } from "../../context/authContext";
 import { useNavigate } from "react-router-dom";
+import { NotifContext } from "../../context/notifContext";
 
 const Navbar = () => {
   const themes = [
@@ -18,7 +19,10 @@ const Navbar = () => {
 
   const { theme, setTheme } = useContext(ThemeContext);
   const { setIsLoggedIn, setName, name } = useContext(AuthContext);
+  const { setMsg, setOpen, setIsLoading} = useContext(NotifContext);
+
   const navigate = useNavigate();
+
   const menus = [
     {
       id: "overview",
@@ -67,6 +71,7 @@ const Navbar = () => {
   const refreshToken = localStorage.getItem("refreshToken");
 
   const Logout = async () => {
+    setIsLoading(true);
     try {
       await axios.get("https://jwt-auth-eight-neon.vercel.app/logout", {
         headers: {
@@ -74,19 +79,27 @@ const Navbar = () => {
         },
       });
 
+      setIsLoading(false);
+      setOpen(true);
+      setMsg({ severity: "success", desc: "Logout Succes"});
+
       setIsLoggedIn(false);
       setName("");
       localStorage.removeItem("refreshToken");
 
       navigate("/login");
     } catch (error) {
-      setIsLoading(false);
-
       if (error.response) {
         setOpen(true);
         setMsg({ severity: "error", desc: error.response.data.msg });
       }
     }
+    setIsLoading(false);
+    setName("");
+    setIsLoading(false);
+
+    localStorage.removeItem("refreshToken");
+    navigate("/login");
   };
   return (
     <div className="bg-defaultBlack ">
