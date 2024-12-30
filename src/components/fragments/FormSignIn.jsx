@@ -10,9 +10,8 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 import { NotifContext } from "../../context/notifContext";
 const FormSignIn = () => {
-  const {setMsg, setOpen, setIsLoading, msg, open} = useContext(NotifContext);
+  const { setMsg, setOpen, setIsLoading, msg, open } = useContext(NotifContext);
   const { setIsLoggedIn, setName } = useContext(AuthContext);
-  
 
   const navigate = useNavigate();
   const {
@@ -94,11 +93,9 @@ const FormSignIn = () => {
         <CheckBox label="Keep me signed in" name="status" />
       </div>
       <Button
-        variant={
-          !isValid
-            ? "bg-gray-05 w-full text-white"
-            : "bg-primary w-full text-white"
-        }
+        variant={`${
+          !isValid ? "bg-gray-05" : "bg-primary zoom-in"
+        } w-full text-white`}
         type="submit"
         disabled={!isValid ? "disabled" : ""}
       >

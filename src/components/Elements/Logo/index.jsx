@@ -3,7 +3,7 @@ const Logo = (props) => {
 
   return (
     <div
-      className={`flex justify-center font-poppins tracking-wide ${variant}`}
+      className={`flex justify-center font-poppins tracking-wide animate-bounce ${variant}`}
     >
       <span className="font-bold ">FINE</span>bank
       <span className="font-bold">.IO</span>
