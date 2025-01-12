@@ -26,12 +26,12 @@ describe("User  mengakses halaman dashboard (overview)", () => {
     // Langkah 4: Klik tombol Login
     cy.get("button").contains("Login").click();
 
-    // Langkah 5: Verifikasi navigasi dan header setelah login
+    // Langkah 5: Verifikasi URL dashboard atau overview
+    cy.url().should("include", "/");
+
+    // Langkah 6: Verifikasi navigasi dan header setelah login
     cy.get("nav").should("be.visible");
     cy.get("header").should("be.visible");
-
-    // Langkah 6: Verifikasi URL dashboard atau overview
-    cy.url().should("include", "/");
   });
 
   // it("should not allow user to log in with invalid credentials", () => {
