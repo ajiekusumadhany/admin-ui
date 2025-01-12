@@ -11,7 +11,7 @@ const Card = (props) => {
         )}
         </>
       )}
-      <div className="bg-white rounded-lg px-6 py-5 shadow-xl flex-1">{desc}
+      <div className="bg-secondary text-colorTeks rounded-lg px-6 py-5 shadow-xl flex-1">{desc}
 
       </div>
 

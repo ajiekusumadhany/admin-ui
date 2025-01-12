@@ -5,33 +5,54 @@ import { NotifContext } from "../../context/notifContext";
 import SimpleBackdrop from "../Elements/Backdrop";
 import CustomizedSnackbars from "../Elements/SnackBar";
 import * as motion from "motion/react-client";
+import { ModeContext } from "../../context/modeContext";
+import { ThemeContext } from "../../context/themeContext";
+
 
 const AuthLayout = (props) => {
   const { children, type } = props;
   const { msg, setMsg, open, setOpen, isLoading, setIsLoading } =
     useContext(NotifContext);
+    
+  const { theme } = useContext(ThemeContext);
+
+  const { mode, setMode } = useContext(ModeContext);
+  const handleModeChange = () => {
+    if (mode.name === "light") {
+      setMode({ name: "dark"});
+    } else {
+      setMode({ name: "light"});
+    }
+  };
+
   return (
-    <div className="flex justify-center min-h-screen items-center bg-special-mainBg">
-       {isLoading && (
-          <SimpleBackdrop isLoading={isLoading} setIsLoading={setIsLoading} />
-        )}
-        {msg && (
-          <CustomizedSnackbars
+    // <div className="flex justify-center min-h-screen items-center bg-special-mainBg">
+    <div
+  className={`flex justify-center min-h-screen items-center bg-special-mainBg ${
+    mode.name 
+  }`}
+>
+      {isLoading && (
+        <SimpleBackdrop isLoading={isLoading} setIsLoading={setIsLoading} />
+      )}
+      {msg && (
+        <CustomizedSnackbars
           severity={msg.severity}
           message={msg.desc}
           open={open}
           setOpen={setOpen}
-          />
-        )}
+        />
+      )}
       {/* container start */}
-      <motion.div 
-      initial={{ opacity: 0, scale: 0 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{
-        duration: 0.4,
-        scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
-      }}
-      className="w-full max-w-sm">
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.4,
+          scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+        }}
+        className="w-full max-w-sm"
+      >
         {/* logo start */}
         <div className="mb-8">
           <Logo />
@@ -40,7 +61,7 @@ const AuthLayout = (props) => {
         {/* text forgot password */}
         {type === "forgot password" && (
           <div className="flex justify-center flex-col items-center mt-6">
-            <h2 className="font-bold mb-2">Forgot Password?</h2>
+            <h2 className="font-bold mb-2 text-colorTeks">Forgot Password?</h2>
             <p className="text-center text-sm text-gray-02">
               Enter your email address to get the <br /> password reset link.
             </p>
@@ -131,15 +152,15 @@ const AuthLayout = (props) => {
               <span className="text-sm text-gray-03">
                 Already have an account?&nbsp;
               </span>
-              <Link to="/login" className="text-primary text-sm font-bold">
+              <Link to="/login" className={`text-primary text-sm font-bold ${theme.name}`}>
                 Sign in here
               </Link>
             </>
           ) : type == "sign in" ? (
             <div div className="flex flex-col items-center">
-              <Link to="/register" className="text-primary text-sm font-bold">
-                Create an account
-              </Link>
+<Link to="/register" className={`text-primary text-sm font-bold ${theme.name}`}>
+  Create an account
+</Link>
               <Link to="/forgot" className="text-gray-03 text-sm font-bold">
                 Forgot Password
               </Link>
@@ -151,11 +172,26 @@ const AuthLayout = (props) => {
               </Link>
             </>
           )}
+          
+        </div>
+        <div className="flex justify-center mt-5">
+        <button
+  className="bg-special-bg px-4 py-2 rounded-md text-sm"
+  onClick={handleModeChange}
+>
+  {mode.name === "light" ? (
+    <span className="text-xl">🌙</span>
+  ) : (
+    <span className="text-xl">☀️</span>
+  )}
+</button>
         </div>
         {/* link end */}
       </motion.div>
+      
       {/* container end */}
     </div>
+    
   );
 };
 

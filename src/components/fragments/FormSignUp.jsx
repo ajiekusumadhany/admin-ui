@@ -4,7 +4,7 @@ import LabeledInput from "../Elements/LabeledInput";
 const FormSignUp = () => {
   return (
     <form action="">
-      <div className="mb-6">
+      <div className="mb-6 text-colorTeks">
         <LabeledInput
           label="Name"
           type="text"
@@ -12,7 +12,7 @@ const FormSignUp = () => {
           name="name"
         />
       </div>
-      <div className="mb-6">
+      <div className="mb-6 text-colorTeks">
         <LabeledInput
           label="Email Address"
           type="email"
@@ -20,7 +20,7 @@ const FormSignUp = () => {
           name="email"
         />
       </div>
-      <div className="mb-6">
+      <div className="mb-6 text-colorTeks">
         <LabeledInput
           label="Password"
           type="password"

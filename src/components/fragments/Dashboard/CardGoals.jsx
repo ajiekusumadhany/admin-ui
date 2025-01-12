@@ -4,8 +4,12 @@ import { goals } from "../../../data/goals";
 import Card from "../../Elements/Card";
 import CompositionExample from "../../Elements/GaugeChart";
 import { Icon } from "../../Elements/Icon";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 const CardGoal = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
   const [goals, setGoals] = useState({ presentAmount: 0, targetAmount: 0 });
 
   const value = (goals.presentAmount * 100) / goals.targetAmount;
@@ -27,6 +31,11 @@ const CardGoal = () => {
         presentAmount: response.data.data[0].present_amount,
         targetAmount: response.data.data[0].target_amount,
       });
+
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+      
       console.log(response.data);
     } catch (error) {
       if (error.response) {
@@ -57,6 +66,11 @@ const CardGoal = () => {
     <Card
       title="Goals"
       desc={
+        isLoading ? (
+          <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+            <CircularProgress size={70} sx={{ color: 'var(--color-primary)' }} />
+          </Box>
+        ) : (
         <div className="p-2">
           <div className="flex justify-between">
             <div className="flex">
@@ -108,6 +122,7 @@ const CardGoal = () => {
             </div>
           </div>
         </div>
+        )
       }
     />
   );

@@ -53,7 +53,7 @@ const FormSignIn = () => {
   const onErrors = (errors) => console.error(errors);
   return (
     <form onSubmit={handleSubmit(onFormSubmit, onErrors)}>
-      <div className="mb-6">
+      <div className="mb-6 text-colorTeks">
         <LabeledInput
           label="Email address"
           type="email"
@@ -73,7 +73,7 @@ const FormSignIn = () => {
           <div className="text-center text-red-500">{errors.email.message}</div>
         )}
       </div>
-      <div className="mb-6">
+      <div className="mb-6 text-colorTeks">
         <LabeledInput
           label="Password"
           type="password"
@@ -101,14 +101,6 @@ const FormSignIn = () => {
       >
         Login
       </Button>
-      {msg && (
-        <CustomizedSnackbars
-          severity={msg.severity}
-          message={msg.desc}
-          open={open}
-          setOpen={setOpen}
-        />
-      )}
     </form>
   );
 };

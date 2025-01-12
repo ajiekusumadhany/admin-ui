@@ -10,9 +10,15 @@ html {
   :root {
     /* default primary color*/
     --color-primary: #299d91;
+    --color-secondary: #ffffff;
+    --main-bg: #F4F5F7;
+    --color-teks: #000;
   }
 }
 
+.theme-green {
+  --color-primary: #299D91;
+}
 .theme-blue {
   --color-primary: #1e90ff;
 }
@@ -27,6 +33,17 @@ html {
 
 .theme-brown {
   --color-primary: #8b4513;
+}
+/* src/index.css */
+.dark {
+  --main-bg: #191919;
+  --color-secondary: #525256;
+  --color-teks: #fff;
+}
+.light{
+  --color-secondary: #ffffff;
+  --main-bg: #F4F5F7;
+  --color-teks: #000;
 }
 .zoom-in {
   @apply duration-500 hover:translate-y-1 hover:scale-110;

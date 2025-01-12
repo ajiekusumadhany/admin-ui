@@ -4,7 +4,7 @@ import LabeledInput from "../Elements/LabeledInput";
 const FormForgotPassword = () => {
   return (
     <form action="">
-      <div className="mb-6">
+      <div className="mb-6 text-colorTeks">
         <LabeledInput
           label="Email address"
           type="email"

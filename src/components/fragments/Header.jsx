@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className="border-b-2 py-4 px-6 flex items-center justify-between">
       <div className="flex">
-        <div className="font-bold text-lg">Username</div>
+        <div className="font-bold text-lg text-colorTeks">Username</div>
         <div className="ms-6 text-gray-03">{date}</div>
       </div>
       <div className="flex">
