@@ -36,18 +36,20 @@ const Stepper = (props) => {
         sx={{
           maxWidth: "100%",
           flexGrow: 1,
+          backgroundColor: "var(--color-secondary)",
           " & .MuiMobileStepper-dot": {
             backgroundColor: "darkgray",
           },
           " & .MuiMobileStepper-dotActive": {
             backgroundColor: themeMode.color,
           },
+
         }}
         nextButton={
           <Button
             size="small"
             onClick={handleNext}
-            sx={{ color: "black", fontWeight: "bold" }}
+            sx={{  color: "var(--color-teks)", fontWeight: "bold"}}
             disabled={activeStep === dataNum - 1}
           >
             Next
@@ -62,7 +64,7 @@ const Stepper = (props) => {
           <Button
             size="small"
             onClick={handleBack}
-            sx={{ color: "black", fontWeight: "bold" }}
+            sx={{  color: "var(--color-teks)", fontWeight: "bold" }}
             disabled={activeStep === 0}
           >
             {theme.direction === "rtl" ? (

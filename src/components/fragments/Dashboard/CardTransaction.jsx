@@ -19,13 +19,13 @@ const CardTransaction = () => {
     }
 
     const transactionCard = trxs.map((transaction) => (
-        <div key={transaction.id} className="flex justify-between my-6">
+        <div key={transaction.id} className="flex justify-between my-6 ">
             <div className="flex">
                 <div className="bg-special-bg px-3 rounded-lg flex flex-col place-content-center">
                     {transaction.icon}
                 </div>
                 <div className="ms-4">
-                    <span className="text-xl font-bold">
+                    <span className="text-xl font-bold ">
                         {transaction.transactionName}
                     </span>
                     <br />
