@@ -5,7 +5,7 @@ describe("User  mengakses halaman dashboard (overview)", () => {
   it("should allow user to log in and access the dashboard", () => {
     // Langkah 1: Buka halaman login
     cy.viewport(1280, 800);
-    cy.visit("http://localhost:5173/");
+    cy.visit("https://admin-ui-ajie.vercel.app/");
 
     // Langkah 2: Verifikasi URL mengandung '/login'
     cy.url().should("include", "/login");
